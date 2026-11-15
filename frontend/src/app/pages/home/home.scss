@@ -1,6 +1,6 @@
 .hero {
   padding: 4rem 0 3.5rem;
-  background: linear-gradient(180deg, #edf2ff 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, var(--hero-wash) 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--border);
 }
 
@@ -56,15 +56,15 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: #b3bac7;
+  background: var(--status-checking);
 }
 
 .status--online .status__dot {
-  background: #1f9d61;
+  background: var(--status-online);
 }
 
 .status--offline .status__dot {
-  background: #d92d20;
+  background: var(--status-offline);
 }
 
 .hero__card {
@@ -100,9 +100,9 @@
   place-items: center;
   padding: 0.18rem 0;
   border-radius: 0.45rem;
-  background: #f1f4fa;
+  background: var(--tint-surface);
   color: var(--accent);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
 }
 

@@ -16,78 +16,131 @@
 
         <div class="field">
           <label class="field__label" for="founders">Сколько будет учредителей?</label>
-          <select id="founders" class="select" formControlName="founders">
+          <select
+            id="founders"
+            #foundersSelect
+            class="select"
+            formControlName="founders"
+            required
+            [attr.aria-invalid]="isInvalid('founders')"
+            [attr.aria-describedby]="isInvalid('founders') ? 'founders-error' : null"
+          >
             <option [ngValue]="null" disabled>Выберите вариант</option>
             <option value="one">Один</option>
             <option value="couple">2–4</option>
             <option value="group">5–50</option>
             <option value="many">51 и больше</option>
           </select>
-          @if (form.controls.founders.touched && form.controls.founders.invalid) {
-            <span class="field__error">Выберите количество учредителей</span>
+          @if (isInvalid('founders')) {
+            <span class="field__error" id="founders-error">Выберите количество учредителей</span>
           }
         </div>
 
         <div class="field">
           <label class="field__label" for="revenue">Планируемая годовая выручка</label>
-          <select id="revenue" class="select" formControlName="revenue">
+          <select
+            id="revenue"
+            class="select"
+            formControlName="revenue"
+            required
+            [attr.aria-invalid]="isInvalid('revenue')"
+            [attr.aria-describedby]="isInvalid('revenue') ? 'revenue-error' : null"
+          >
             <option [ngValue]="null" disabled>Выберите вариант</option>
             <option value="micro">До 2,4 млн ₽</option>
             <option value="small">От 2,4 до 60 млн ₽</option>
             <option value="large">Свыше 60 млн ₽</option>
           </select>
-          @if (form.controls.revenue.touched && form.controls.revenue.invalid) {
-            <span class="field__error">Выберите ожидаемую выручку</span>
+          @if (isInvalid('revenue')) {
+            <span class="field__error" id="revenue-error">Выберите ожидаемую выручку</span>
           }
         </div>
 
-        <fieldset class="field">
+        <fieldset
+          class="field"
+          [attr.aria-invalid]="isInvalid('employees')"
+          [attr.aria-describedby]="isInvalid('employees') ? 'employees-error' : null"
+        >
           <legend class="field__label">Планируете нанимать сотрудников?</legend>
           <div class="segmented">
             <label
               class="segmented__option"
               [class.segmented__option--active]="form.controls.employees.value === true"
             >
-              <input type="radio" formControlName="employees" [value]="true" />
+              <input
+                type="radio"
+                id="employees-yes"
+                name="employees"
+                formControlName="employees"
+                [value]="true"
+                required
+              />
               <span>Да</span>
             </label>
             <label
               class="segmented__option"
               [class.segmented__option--active]="form.controls.employees.value === false"
             >
-              <input type="radio" formControlName="employees" [value]="false" />
+              <input
+                type="radio"
+                id="employees-no"
+                name="employees"
+                formControlName="employees"
+                [value]="false"
+              />
               <span>Нет</span>
             </label>
           </div>
-          @if (form.controls.employees.touched && form.controls.employees.invalid) {
-            <span class="field__error">Выберите один из вариантов</span>
+          @if (isInvalid('employees')) {
+            <span class="field__error" id="employees-error">Выберите один из вариантов</span>
           }
         </fieldset>
 
-        <fieldset class="field">
+        <fieldset
+          class="field"
+          [attr.aria-invalid]="isInvalid('investors')"
+          [attr.aria-describedby]="isInvalid('investors') ? 'investors-error' : null"
+        >
           <legend class="field__label">Нужны ли инвесторы или партнёры?</legend>
           <div class="segmented">
             <label
               class="segmented__option"
               [class.segmented__option--active]="form.controls.investors.value === true"
             >
-              <input type="radio" formControlName="investors" [value]="true" />
+              <input
+                type="radio"
+                id="investors-yes"
+                name="investors"
+                formControlName="investors"
+                [value]="true"
+                required
+              />
               <span>Да</span>
             </label>
             <label
               class="segmented__option"
               [class.segmented__option--active]="form.controls.investors.value === false"
             >
-              <input type="radio" formControlName="investors" [value]="false" />
+              <input
+                type="radio"
+                id="investors-no"
+                name="investors"
+                formControlName="investors"
+                [value]="false"
+              />
               <span>Нет</span>
             </label>
           </div>
-          @if (form.controls.investors.touched && form.controls.investors.invalid) {
-            <span class="field__error">Выберите один из вариантов</span>
+          @if (isInvalid('investors')) {
+            <span class="field__error" id="investors-error">Выберите один из вариантов</span>
           }
         </fieldset>
 
-        <fieldset class="field">
+        <fieldset
+          class="field"
+          [attr.aria-invalid]="isInvalid('limitedLiability')"
+          [attr.aria-describedby]="isInvalid('limitedLiability') ? 'liability-error' : null"
+        >
           <legend class="field__label">
             Важна ли ограниченная ответственность?
             <span class="field__hint">Готовы ли вы отвечать по долгам личным имуществом</span>
@@ -97,40 +150,56 @@
               class="segmented__option"
               [class.segmented__option--active]="form.controls.limitedLiability.value === true"
             >
-              <input type="radio" formControlName="limitedLiability" [value]="true" />
+              <input
+                type="radio"
+                id="liability-yes"
+                name="limitedLiability"
+                formControlName="limitedLiability"
+                [value]="true"
+                required
+              />
               <span>Да, важна</span>
             </label>
             <label
               class="segmented__option"
               [class.segmented__option--active]="form.controls.limitedLiability.value === false"
             >
-              <input type="radio" formControlName="limitedLiability" [value]="false" />
+              <input
+                type="radio"
+                id="liability-no"
+                name="limitedLiability"
+                formControlName="limitedLiability"
+                [value]="false"
+              />
               <span>Готов рисковать</span>
             </label>
           </div>
-          @if (form.controls.limitedLiability.touched && form.controls.limitedLiability.invalid) {
-            <span class="field__error">Выберите один из вариантов</span>
+          @if (isInvalid('limitedLiability')) {
+            <span class="field__error" id="liability-error">Выберите один из вариантов</span>
           }
         </fieldset>
 
         <div class="field">
           <label class="field__label" for="priority">Что важнее на старте?</label>
-          <select id="priority" class="select" formControlName="priority">
+          <select
+            id="priority"
+            class="select"
+            formControlName="priority"
+            required
+            [attr.aria-invalid]="isInvalid('priority')"
+            [attr.aria-describedby]="isInvalid('priority') ? 'priority-error' : null"
+          >
             <option [ngValue]="null" disabled>Выберите вариант</option>
             <option value="simplicity">Простая регистрация и отчётность</option>
             <option value="scaling">Масштабирование и привлечение капитала</option>
           </select>
-          @if (form.controls.priority.touched && form.controls.priority.invalid) {
-            <span class="field__error">Выберите приоритет</span>
+          @if (isInvalid('priority')) {
+            <span class="field__error" id="priority-error">Выберите приоритет</span>
           }
         </div>
 
         <div class="form__actions">
-          <button
-            type="submit"
-            class="btn btn--primary btn--block"
-            [disabled]="form.invalid || submitting()"
-          >
+          <button type="submit" class="btn btn--primary btn--block" [disabled]="submitting()">
             @if (submitting()) {
               Подбираем…
             } @else {
@@ -146,18 +215,18 @@
         </div>
 
         @if (form.invalid) {
-          <p class="form__hint">Заполните все вопросы, чтобы кнопка стала активной.</p>
+          <p class="form__hint">Заполните все вопросы, чтобы получить рекомендацию.</p>
         }
         @if (failed()) {
           <p class="form__error">Не удалось получить рекомендацию. Попробуйте ещё раз.</p>
         }
       </form>
 
-      <aside class="result" #resultPanel aria-live="polite">
+      <aside class="result">
         @if (result(); as recommendation) {
           <article class="result__card card">
             <span class="badge">Рекомендуем</span>
-            <h2 class="result__title">{{ recommendation.opf.name }}</h2>
+            <h2 class="result__title" #resultTitle tabindex="-1">{{ recommendation.opf.name }}</h2>
             <p class="result__full">{{ recommendation.opf.fullName }}</p>
             <p class="result__description">{{ recommendation.opf.description }}</p>
 
@@ -165,6 +234,13 @@
             <ul class="checks">
               @for (advantage of recommendation.opf.advantages; track advantage) {
                 <li>{{ advantage }}</li>
+              }
+            </ul>
+
+            <h3 class="result__subtitle">Ограничения</h3>
+            <ul class="limits">
+              @for (limitation of recommendation.opf.limitations; track limitation) {
+                <li>{{ limitation }}</li>
               }
             </ul>
 
