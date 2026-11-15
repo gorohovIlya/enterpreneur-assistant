@@ -1,0 +1,9 @@
+<section class="ai">
+  <div class="container">
+    @if (response(); as data) {
+      <pre class="ai__json">{{ data | json }}</pre>
+    } @else {
+      <p class="ai__status">Загрузка ответа…</p>
+    }
+  </div>
+</section>

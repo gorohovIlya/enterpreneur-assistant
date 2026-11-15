@@ -12,6 +12,11 @@ export const routes: Routes = [
     title: 'Подбор ОПФ — Помощник предпринимателя',
   },
   {
+    path: 'ai',
+    loadComponent: () => import('./pages/ai/ai').then((m) => m.Ai),
+    title: 'Ответ модели — Помощник предпринимателя',
+  },
+  {
     path: '**',
     redirectTo: '',
   },
