@@ -10,6 +10,14 @@ import {
 } from '../../models/opf';
 import { RecommendationService } from '../../services/recommendation';
 
+type ControlName =
+  | 'founders'
+  | 'revenue'
+  | 'employees'
+  | 'investors'
+  | 'limitedLiability'
+  | 'priority';
+
 @Component({
   selector: 'app-recommend',
   standalone: true,
@@ -20,7 +28,8 @@ import { RecommendationService } from '../../services/recommendation';
 export class Recommend {
   private readonly fb = inject(FormBuilder);
   private readonly recommendationService = inject(RecommendationService);
-  private readonly resultRef = viewChild<ElementRef<HTMLElement>>('resultPanel');
+  private readonly resultTitleRef = viewChild<ElementRef<HTMLElement>>('resultTitle');
+  private readonly foundersRef = viewChild<ElementRef<HTMLSelectElement>>('foundersSelect');
 
   readonly form = this.fb.group({
     founders: this.fb.control<FoundersCount | null>(null, Validators.required),
@@ -34,6 +43,11 @@ export class Recommend {
   readonly result = signal<RecommendationResult | null>(null);
   readonly submitting = signal(false);
   readonly failed = signal(false);
+
+  isInvalid(control: ControlName): boolean {
+    const field = this.form.controls[control];
+    return field.touched && field.invalid;
+  }
 
   submit(): void {
     if (this.submitting()) {
@@ -77,14 +91,10 @@ export class Recommend {
         this.result.set(result);
         this.submitting.set(false);
 
-        if (
-          typeof window !== 'undefined' &&
-          window.matchMedia('(max-width: 900px)').matches
-        ) {
-          setTimeout(() => {
-            this.resultRef()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 0);
-        }
+        // Focus the result heading once the view has rendered it. The browser
+        // scrolls it into view and respects `scroll-padding-top` and
+        // `prefers-reduced-motion`, so no manual scrolling is needed.
+        setTimeout(() => this.resultTitleRef()?.nativeElement.focus(), 0);
       },
       error: () => {
         this.submitting.set(false);
@@ -104,5 +114,6 @@ export class Recommend {
     });
     this.result.set(null);
     this.failed.set(false);
+    this.foundersRef()?.nativeElement.focus();
   }
 }

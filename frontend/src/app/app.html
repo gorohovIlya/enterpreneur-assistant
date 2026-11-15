@@ -14,11 +14,17 @@
           routerLink="/"
           routerLinkActive="site-nav__link--active"
           [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
           class="site-nav__link"
         >
           Главная
         </a>
-        <a routerLink="/recommend" routerLinkActive="site-nav__link--active" class="site-nav__link">
+        <a
+          routerLink="/recommend"
+          routerLinkActive="site-nav__link--active"
+          ariaCurrentWhenActive="page"
+          class="site-nav__link"
+        >
           Подобрать ОПФ
         </a>
       </nav>

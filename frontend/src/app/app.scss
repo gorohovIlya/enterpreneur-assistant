@@ -8,7 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--header-glass);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
 }
@@ -36,7 +36,7 @@
   place-items: center;
   border-radius: 0.7rem;
   background: var(--accent);
-  color: #fff;
+  color: var(--surface);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -66,6 +66,9 @@
 }
 
 .site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
   color: var(--muted);
@@ -78,7 +81,7 @@
 
 .site-nav__link:hover {
   color: var(--text);
-  background: #f1f4fa;
+  background: var(--tint-surface);
 }
 
 .site-nav__link--active {
@@ -92,7 +95,7 @@
 
 .site-footer {
   border-top: 1px solid var(--border);
-  background: #fff;
+  background: var(--surface);
   color: var(--muted);
   font-size: 0.8rem;
 }

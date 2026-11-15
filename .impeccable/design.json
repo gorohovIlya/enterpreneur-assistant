@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T19:07:41+08:00",
+  "title": "Design System: Помощник предпринимателя",
+  "extensions": {
+    "colorMeta": {
+      "registry-blue": {
+        "role": "primary",
+        "displayName": "Registry Blue",
+        "canonical": "#2f5fe0",
+        "tonalRamp": ["#edf0f7", "#bcccf5", "#90aaee", "#567de6", "#2154de", "#1940a9", "#122e78", "#0a1943"]
+      },
+      "registry-blue-deep": {
+        "role": "primary",
+        "displayName": "Registry Blue Deep",
+        "canonical": "#244bb4",
+        "tonalRamp": ["#eef0f7", "#bfcdf2", "#95acea", "#5e80df", "#2b59d4", "#2043a2", "#173073", "#0d1b40"]
+      },
+      "paper-blue": {
+        "role": "primary",
+        "displayName": "Paper Blue",
+        "canonical": "#eaf0ff",
+        "tonalRamp": ["#ebeff9", "#b2c8ff", "#80a4ff", "#3d75ff", "#0049ff", "#0037c2", "#00278a", "#00164c"]
+      },
+      "daylight-paper": {
+        "role": "neutral",
+        "displayName": "Daylight Paper",
+        "canonical": "#f4f6fb",
+        "tonalRamp": ["#eff1f6", "#c7d1eb", "#a2b2dd", "#718bcb", "#4466bb", "#344e8e", "#253765", "#141f38"]
+      },
+      "sheet-white": {
+        "role": "neutral",
+        "displayName": "Sheet White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#9e9e9e", "#808080", "#616161", "#454545", "#262626"]
+      },
+      "ink-navy": {
+        "role": "neutral",
+        "displayName": "Ink Navy",
+        "canonical": "#182034",
+        "tonalRamp": ["#f0f1f5", "#cbd3e7", "#a8b5d7", "#7a8fc2", "#516bae", "#3d5285", "#2b3a5e", "#182034"]
+      },
+      "slate-comment": {
+        "role": "neutral",
+        "displayName": "Slate Comment",
+        "canonical": "#5f6b80",
+        "tonalRamp": ["#f1f2f3", "#d3d7de", "#b6bdc9", "#909aac", "#6d7a92", "#535d6f", "#3b424f", "#21252c"]
+      },
+      "form-rule": {
+        "role": "neutral",
+        "displayName": "Form Rule",
+        "canonical": "#dde3ef",
+        "tonalRamp": ["#f0f1f5", "#cbd4e7", "#a8b8d6", "#7b92c1", "#5270ad", "#3e5584", "#2c3d5e", "#182234"]
+      },
+      "tint-surface": {
+        "role": "neutral",
+        "displayName": "Tint Surface",
+        "canonical": "#f1f4fa",
+        "tonalRamp": ["#eff1f6", "#c7d3eb", "#a1b5dd", "#708fcc", "#436bbc", "#33528f", "#243a65", "#142038"]
+      },
+      "control-track": {
+        "role": "neutral",
+        "displayName": "Control Track",
+        "canonical": "#f2f5fb",
+        "tonalRamp": ["#eff1f6", "#c4d2ed", "#9eb4e1", "#6b8dd1", "#3c69c3", "#2e5094", "#203969", "#12203a"]
+      },
+      "hero-wash": {
+        "role": "neutral",
+        "displayName": "Hero Wash",
+        "canonical": "#edf2ff",
+        "tonalRamp": ["#ebeff9", "#b2c8ff", "#80a3ff", "#3d73ff", "#0047ff", "#0036c2", "#00268a", "#00154c"]
+      },
+      "notice-red": {
+        "role": "tertiary",
+        "displayName": "Notice Red",
+        "canonical": "#b42318",
+        "tonalRamp": ["#f8eeed", "#f6c0bb", "#f0958f", "#e85e54", "#e12c1e", "#ab2117", "#7a1810", "#440d09"]
+      },
+      "verified-green": {
+        "role": "secondary",
+        "displayName": "Verified Green",
+        "canonical": "#147a4b",
+        "tonalRamp": ["#edf7f3", "#bdf4db", "#91edc3", "#58e4a4", "#24db87", "#1ba766", "#137649", "#0b4228"]
+      },
+      "verified-wash": {
+        "role": "secondary",
+        "displayName": "Verified Wash",
+        "canonical": "#e7f6ee",
+        "tonalRamp": ["#eff5f2", "#c7ead8", "#a2dcbd", "#72ca9b", "#46b97c", "#358d5e", "#266443", "#153825"]
+      },
+      "status-checking": {
+        "role": "neutral",
+        "displayName": "Status Checking",
+        "canonical": "#b3bac7",
+        "tonalRamp": ["#f1f2f3", "#d3d7df", "#b6bcc9", "#8f9aad", "#6c7a93", "#525c70", "#3a424f", "#20252c"]
+      },
+      "status-online": {
+        "role": "secondary",
+        "displayName": "Status Online",
+        "canonical": "#1f9d61",
+        "tonalRamp": ["#eef7f2", "#bff2da", "#95eac1", "#5ddfa1", "#2ad584", "#20a264", "#177347", "#0d4027"]
+      },
+      "status-offline": {
+        "role": "tertiary",
+        "displayName": "Status Offline",
+        "canonical": "#d92d20",
+        "tonalRamp": ["#f7eeed", "#f5c0bc", "#ef9790", "#e66056", "#de2e21", "#a92319", "#781912", "#430e0a"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Home hero headline only." },
+      "headline": { "displayName": "Headline", "purpose": "Page title on the recommendation screen." },
+      "title": { "displayName": "Title", "purpose": "Section headings and the recommendation's form name." },
+      "body": { "displayName": "Body", "purpose": "Running text, leads, descriptions." },
+      "label": { "displayName": "Label", "purpose": "Field labels, buttons, nav, alternative names." },
+      "micro": { "displayName": "Micro", "purpose": "Hints, meta lines, fact labels, badge and footer." }
+    },
+    "shadows": [
+      { "name": "sheet-rest", "value": "0 10px 30px rgba(24, 32, 52, 0.07)", "purpose": "Every card at rest; one value at every depth." },
+      { "name": "action-glow", "value": "0 8px 18px rgba(47, 95, 224, 0.22)", "purpose": "Primary button only; removed on disabled." },
+      { "name": "track-lift", "value": "0 1px 4px rgba(24, 32, 52, 0.14)", "purpose": "Selected option in the segmented control." },
+      { "name": "focus-ring", "value": "0 0 0 2px #2f5fe0", "purpose": "Visible keyboard focus on any interactive element; 2px offset. Solid, not translucent, for AA non-text contrast." }
+    ],
+    "motion": [
+      { "name": "ease-state", "value": "0.15s ease", "purpose": "All colour, border and background transitions." },
+      { "name": "hover-lift", "value": "transform: translateY(-1px)", "purpose": "Primary button hover only." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce", "purpose": "Disables smooth scrolling and button transitions." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "900px" },
+      { "name": "mobile", "value": "640px" },
+      { "name": "container-max", "value": "1120px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single action on a sheet: submit, start, go forward. Registry Blue with a coloured glow.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Получить рекомендацию <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.72rem 1.35rem; border: 1px solid transparent; border-radius: 0.7rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 0.92rem; font-weight: 600; line-height: 1.2; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease; } .ds-btn-primary { background: var(--accent, #2f5fe0); color: #fff; box-shadow: 0 8px 18px rgba(47, 95, 224, 0.22); } .ds-btn-primary:hover { background: var(--accent-dark, #244bb4); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 3px solid rgba(47, 95, 224, 0.35); outline-offset: 2px; } .ds-btn-primary:disabled { box-shadow: none; opacity: 0.55; cursor: not-allowed; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The paired secondary action: \"how it works\", reset answers.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Сбросить ответы</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.72rem 1.35rem; border: 1px solid transparent; border-radius: 0.7rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 0.92rem; font-weight: 600; line-height: 1.2; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease; } .ds-btn-ghost { background: transparent; border-color: var(--border, #dde3ef); color: var(--text, #182034); } .ds-btn-ghost:hover { border-color: var(--accent, #2f5fe0); color: var(--accent, #2f5fe0); } .ds-btn-ghost:focus-visible { outline: 3px solid rgba(47, 95, 224, 0.35); outline-offset: 2px; } .ds-btn-ghost:disabled { opacity: 0.55; cursor: not-allowed; }"
+    },
+    {
+      "name": "Select Field",
+      "kind": "input",
+      "refersTo": "select",
+      "description": "Native select on a white sheet; label above, hint or error below.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-founders\">Сколько будет учредителей?</label><select id=\"ds-founders\" class=\"ds-select\"><option>Выберите вариант</option><option>Один</option><option>2–4</option></select><span class=\"ds-field-hint\">Все вопросы обязательны.</span></div>",
+      "css": ".ds-field { display: block; } .ds-field-label { display: block; margin-bottom: 0.4rem; color: var(--text, #182034); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 0.92rem; font-weight: 600; } .ds-select { width: 100%; padding: 0.7rem 0.9rem; border: 1px solid var(--border, #dde3ef); border-radius: 0.65rem; background: #fff; color: var(--text, #182034); font-family: inherit; font-size: 1rem; cursor: pointer; transition: border-color 0.15s ease, box-shadow 0.15s ease; } .ds-select:hover { border-color: #c3cde2; } .ds-select:focus { border-color: var(--accent, #2f5fe0); outline: 3px solid rgba(47, 95, 224, 0.15); } .ds-field-hint { display: block; margin-top: 0.15rem; color: var(--muted, #5f6b80); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "input",
+      "refersTo": "segmented-option-active",
+      "description": "Two-up Да / Нет choice in a recessed track; the selected option becomes a raised white pill.",
+      "html": "<div class=\"ds-segmented\" role=\"radiogroup\"><label class=\"ds-segmented-option ds-segmented-option-active\"><input type=\"radio\" checked /><span>Да</span></label><label class=\"ds-segmented-option\"><input type=\"radio\" /><span>Нет</span></label></div>",
+      "css": ".ds-segmented { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.25rem; padding: 0.25rem; border: 1px solid var(--border, #dde3ef); border-radius: 0.65rem; background: #f2f5fb; } .ds-segmented-option { position: relative; padding: 0.5rem 0.75rem; border-radius: 0.5rem; color: var(--muted, #5f6b80); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 0.88rem; text-align: center; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; } .ds-segmented-option:hover { color: var(--text, #182034); } .ds-segmented-option input { position: absolute; opacity: 0; pointer-events: none; } .ds-segmented-option-active { background: #fff; box-shadow: 0 1px 4px rgba(24, 32, 52, 0.14); color: var(--accent, #2f5fe0); font-weight: 600; } .ds-segmented-option:has(input:focus-visible) { outline: 2px solid var(--accent, #2f5fe0); outline-offset: 1px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The base sheet: white, 1px rule, 1.1rem corners, one ambient shadow.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Как это работает</h3><p class=\"ds-card-text\">Три шага — и вы увидите, какая форма лучше подходит вашей ситуации.</p></div>",
+      "css": ".ds-card { padding: 1.5rem; border: 1px solid var(--border, #dde3ef); border-radius: 1.1rem; background: #fff; box-shadow: 0 10px 30px rgba(24, 32, 52, 0.07); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: var(--text, #182034); } .ds-card-title { margin: 0; font-size: 1.05rem; font-weight: 700; } .ds-card-text { margin: 0.4rem 0 0; color: var(--muted, #5f6b80); font-size: 0.92rem; line-height: 1.6; }"
+    },
+    {
+      "name": "Recommendation Card",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "The signature result sheet: badge, form name, legal name, advantages with green checks, limitations with muted dashes, three facts, and the 4px Registry Blue top edge.",
+      "html": "<article class=\"ds-result\"><span class=\"ds-badge\">Рекомендуем</span><h2 class=\"ds-result-title\">Самозанятый (НПД)</h2><p class=\"ds-result-full\">Налог на профессиональный доход</p><p class=\"ds-result-desc\">Самый простой формат для небольшого бизнеса без наёмных сотрудников.</p><ul class=\"ds-checks\"><li>Регистрация через приложение за несколько минут</li><li>Не нужно платить страховые взносы и сдавать декларации</li></ul><ul class=\"ds-limits\"><li>Нельзя нанимать сотрудников</li><li>Лимит дохода — 2,4 млн ₽ в год</li></ul><dl class=\"ds-facts\"><div><dt>Налоги</dt><dd>НПД: 4–6% с дохода</dd></div><div><dt>Ответственность</dt><dd>Личная</dd></div><div><dt>Учредители</dt><dd>Один</dd></div></dl></article>",
+      "css": ".ds-result { padding: 1.6rem; border: 1px solid var(--border, #dde3ef); border-top: 4px solid var(--accent, #2f5fe0); border-radius: 1.1rem; background: #fff; box-shadow: 0 10px 30px rgba(24, 32, 52, 0.07); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: var(--text, #182034); } .ds-badge { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 999px; background: #e7f6ee; color: #147a4b; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; } .ds-result-title { margin: 0.7rem 0 0; font-size: clamp(1.6rem, 3vw, 2rem); line-height: 1.15; } .ds-result-full { margin: 0.15rem 0 0; color: var(--muted, #5f6b80); font-size: 0.85rem; } .ds-result-desc { margin: 0.8rem 0 0; font-size: 0.94rem; line-height: 1.6; } .ds-checks { margin: 1.4rem 0 0; padding: 0; list-style: none; } .ds-checks li { position: relative; margin-top: 0.45rem; padding-left: 1.45rem; font-size: 0.9rem; line-height: 1.6; } .ds-checks li::before { content: '✓'; position: absolute; left: 0; color: #147a4b; font-weight: 700; } .ds-limits { margin: 1.4rem 0 0; padding: 0; list-style: none; } .ds-limits li { position: relative; margin-top: 0.45rem; padding-left: 1.1rem; color: var(--muted, #5f6b80); font-size: 0.9rem; line-height: 1.6; } .ds-limits li::before { content: '–'; position: absolute; left: 0; font-weight: 600; } .ds-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--border, #dde3ef); } .ds-facts dt { color: var(--muted, #5f6b80); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; } .ds-facts dd { margin: 0.25rem 0 0; font-size: 0.82rem; font-weight: 600; line-height: 1.35; }"
+    },
+    {
+      "name": "Status Line",
+      "kind": "custom",
+      "description": "Quiet server-availability indicator under the hero actions; neutral while checking, green online, red offline.",
+      "html": "<p class=\"ds-status\"><span class=\"ds-status-dot ds-status-dot-online\" aria-hidden=\"true\"></span>Сервер доступен</p>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0; color: var(--muted, #5f6b80); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; line-height: 1.6; } .ds-status-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #b3bac7; } .ds-status-dot-online { background: #1f9d61; } .ds-status-dot-offline { background: #d92d20; }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Sticky translucent header: ОПФ mark, two-line wordmark, pill links with the active route on Paper Blue.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-brand-mark\">ОПФ</span><span class=\"ds-brand-text\"><span class=\"ds-brand-title\">Помощник предпринимателя</span><span class=\"ds-brand-subtitle\">выбор организационно-правовой формы</span></span></a><nav class=\"ds-nav\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Главная</a><a class=\"ds-nav-link\" href=\"#\">Подобрать ОПФ</a></nav></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4.25rem; padding-inline: 1.25rem; border-bottom: 1px solid var(--border, #dde3ef); background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; } .ds-brand { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--text, #182034); text-decoration: none; } .ds-brand-mark { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 0.7rem; background: var(--accent, #2f5fe0); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; } .ds-brand-text { display: flex; flex-direction: column; line-height: 1.25; } .ds-brand-title { font-size: 0.98rem; font-weight: 700; } .ds-brand-subtitle { color: var(--muted, #5f6b80); font-size: 0.76rem; } .ds-nav { display: flex; align-items: center; gap: 0.35rem; } .ds-nav-link { padding: 0.5rem 0.9rem; border-radius: 999px; color: var(--muted, #5f6b80); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: color 0.15s ease, background 0.15s ease; } .ds-nav-link:hover { color: var(--text, #182034); background: #f1f4fa; } .ds-nav-link-active { color: var(--accent, #2f5fe0); background: var(--accent-soft, #eaf0ff); }"
+    },
+    {
+      "name": "Empty Result Panel",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Dashed placeholder where the recommendation will appear; the only dashed border in the system.",
+      "html": "<div class=\"ds-empty\"><span class=\"ds-empty-icon\" aria-hidden=\"true\">?</span><h2 class=\"ds-empty-title\">Здесь появится рекомендация</h2><p class=\"ds-empty-text\">Заполните форму и нажмите «Получить рекомендацию».</p></div>",
+      "css": ".ds-empty { display: grid; place-items: center; align-content: center; min-height: 14rem; padding: 2rem; border: 1px dashed var(--border, #dde3ef); border-radius: 1.1rem; background: rgba(255, 255, 255, 0.6); text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: var(--text, #182034); } .ds-empty-icon { display: grid; place-items: center; width: 3rem; height: 3rem; margin-bottom: 0.9rem; border-radius: 50%; background: var(--accent-soft, #eaf0ff); color: var(--accent, #2f5fe0); font-size: 1.3rem; font-weight: 700; } .ds-empty-title { margin: 0; font-size: 1.1rem; } .ds-empty-text { margin: 0.3rem 0 0; color: var(--muted, #5f6b80); font-size: 0.9rem; line-height: 1.6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Daylight Registry",
+    "overview": "This system imagines a state register brought into daylight: the calm authority of an official institution without its gloom. Pages are a pale, blue-tinted paper; content sits on white sheets laid over it, each held by a single hairline rule and one soft ambient shadow. Nothing is hidden behind ornament — the recommendation, its reasons, its trade-offs and its disclaimer all appear on the same sheet, in the same plain voice. The interface behaves like a well-run information desk: it knows the answer, shows its working, and never raises its voice.\n\nThe palette is deliberately narrow. One saturated blue carries every action and every current selection; the rest of the screen is a cool neutral range from paper to ink. Green and red exist only as signals — a recommendation badge, a check, a server status dot, a validation error — and never as a second brand colour. This restraint is what makes a government-adjacent topic feel trustworthy rather than officious.\n\nDensity follows the task. The home page is airy and persuasive, with wide sections and a two-column hero; the six-question form is a compact, single-purpose sheet with disciplined 0.75–1.25rem rhythm; the result panel is the densest surface in the product, using a three-column fact grid and small uppercase labels to stay scannable. Corners are soft but not friendly-cute: paper stock, not candy. Motion is limited to 0.15s state feedback and a 1px lift on the primary button.",
+    "keyCharacteristics": [
+      "A single Registry Blue accent on a cool, blue-tinted neutral field.",
+      "White cards with a 1px Form Rule border and one constant ambient shadow.",
+      "System UI type only — no webfont — with bold, negatively tracked headings and small muted meta labels.",
+      "1.1rem card corners, pill-shaped tags and nav links, 0.65rem field corners.",
+      "Results composed as a paper document: badge, title, checks, reasons, three fact columns, disclaimer.",
+      "Motion as state feedback only; no entrance animations, parallax, or decorative transitions."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Registry Blue marks action, current state, or the recommended answer — and nothing else. If a blue element is neither clickable, selected, nor the recommendation, it is decoration and must go.", "section": "colors" },
+      { "name": "The Signal-Only Rule", "body": "Green and red never become brand colours. Green appears only on the recommendation badge, the check marks, and the online dot; red only on errors and the offline dot. No success toasts, no decorative green highlights, no red emphasis in copy.", "section": "colors" },
+      { "name": "The No-Black Rule", "body": "Text is Ink Navy, at every size and weight. Pure black is off-palette and reads harsher than the paper field around it.", "section": "colors" },
+      { "name": "The System Native Rule", "body": "No webfont, no display face, no imported variable font. The product ships one system stack so Cyrillic renders in the visitor's own UI language and the first paint has nothing to wait for. Adding a webfont is a redesign decision, not a refinement.", "section": "typography" },
+      { "name": "The Tight Heading Rule", "body": "Letter-spacing becomes negative as size grows (-0.01em at section level, -0.02em at page and hero level) and returns to 0 for body text. Headlines should look set, not spaced.", "section": "typography" },
+      { "name": "The Quiet Label Rule", "body": "Supporting text is never larger than 0.92rem and never darker than Slate Comment unless it is a field label or button — those two carry weight instead of colour.", "section": "typography" },
+      { "name": "The One Gap Rule", "body": "One ambient shadow for every card, at every depth. If two cards nest, the inner one loses its shadow rather than gaining a second value.", "section": "elevation" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest and do not lift on hover. The only element that moves on hover is the primary button (a 1px translateY), and only because it is the page's single action.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Registry Blue for action, current state, and the recommended answer only — roughly under 10% of any screen.",
+      "Do place every card on Sheet White over Daylight Paper with a 1px Form Rule border and the single Sheet Rest shadow.",
+      "Do set all text in the system UI stack with Ink Navy for primary and Slate Comment for secondary.",
+      "Do use pills (999px) for tags and nav, and reserve soft rectangles for content surfaces.",
+      "Do show the recommendation with its reasons, facts, alternatives, and the informational disclaimer in one continuous sheet.",
+      "Do use rem for type and spacing so the layout scales with the visitor's browser settings.",
+      "Do end every state transition at 0.15s and disable transitions plus smooth scrolling under prefers-reduced-motion.",
+      "Do state limits honestly in the copy — red is for errors, not for warnings about the product's own scope."
+    ],
+    "donts": [
+      "Don't introduce a webfont, display typeface, or icon font; the system is intentionally native.",
+      "Don't add a second accent hue, gradient, or decorative illustration. The hero's blue-to-paper fade is the only gradient in the product.",
+      "Don't fill large areas with Registry Blue, and never use Registry Blue Deep as a background or text colour.",
+      "Don't use pure black, pure grey, or a shadow value other than Sheet Rest for cards.",
+      "Don't let green or red migrate into brand roles — no green success banners, no red emphasis in running copy.",
+      "Don't stack shadows on nested cards; remove the inner shadow instead.",
+      "Don't use uppercase for body copy; only the badge and fact labels are uppercase.",
+      "Don't centre paragraphs — only the empty state, form hint/error lines, and mobile footer align centre.",
+      "Don't change the 1.1rem card radius to a pill or a hard corner; the paper metaphor depends on it."
+    ]
+  }
+}
