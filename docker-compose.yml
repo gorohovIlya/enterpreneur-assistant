@@ -6,6 +6,10 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      PROMPT_PATH: /app/prompt.md
+    volumes:
+      - ./prompt.md:/app/prompt.md:ro
     expose:
       - "8000"
 

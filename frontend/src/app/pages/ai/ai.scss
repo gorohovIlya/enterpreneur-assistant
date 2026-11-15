@@ -2,20 +2,40 @@
   padding: 2.5rem 0 3.5rem;
 }
 
-.ai__json {
-  overflow-x: auto;
-  margin: 0;
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  font-size: 0.85rem;
-  line-height: 1.5;
+.ai__card {
+  padding: 1.75rem;
+}
+
+.ai__kicker {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ai__model {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.ai__text {
+  margin-top: 1.1rem;
   white-space: pre-wrap;
   word-break: break-word;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .ai__status {
   color: var(--muted);
+}
+
+.ai__status--error {
+  color: var(--danger);
 }
