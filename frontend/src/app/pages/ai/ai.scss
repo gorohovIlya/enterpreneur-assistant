@@ -1,0 +1,21 @@
+.ai {
+  padding: 2.5rem 0 3.5rem;
+}
+
+.ai__json {
+  overflow-x: auto;
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ai__status {
+  color: var(--muted);
+}

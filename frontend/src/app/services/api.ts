@@ -16,4 +16,8 @@ export class ApiService {
   getHealthStatus(): Observable<StatusResponse> {
     return this.http.get<StatusResponse>('/api/health');
   }
+
+  getAiResponse(): Observable<Record<string, unknown>> {
+    return this.http.get<Record<string, unknown>>('/api/ai');
+  }
 }

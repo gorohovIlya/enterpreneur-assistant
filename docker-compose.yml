@@ -4,6 +4,8 @@ services:
       context: ./backend
     container_name: assistant-backend
     restart: unless-stopped
+    env_file:
+      - .env
     expose:
       - "8000"
 
