@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { OPF_CATALOG } from '../data/opf-catalog';
 import { OpfInfo, RecommendationInput, RecommendationResult } from '../models/opf';
 
@@ -17,7 +17,7 @@ export class RecommendationService {
    * поэтому позже его можно заменить вызовом API без изменения компонентов.
    */
   recommend(input: RecommendationInput): Observable<RecommendationResult> {
-    return of(this.calculate(input)).pipe(delay(450));
+    return of(this.calculate(input));
   }
 
   private calculate(input: RecommendationInput): RecommendationResult {
@@ -167,7 +167,7 @@ export class RecommendationService {
       case 'ooo':
         reasons.push(
           input.limitedLiability
-            ? 'Вам важна ограниченная ответственность — участники рискуют только вкладами.'
+            ? 'Вам важна ограниченная ответственность — ООО её обеспечивает.'
             : 'Форма даёт участникам ограниченную ответственность.',
           input.founders === 'one'
             ? 'Доли позволяют позже подключить партнёров или инвесторов.'
