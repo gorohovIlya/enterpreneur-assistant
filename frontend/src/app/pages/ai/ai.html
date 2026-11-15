@@ -1,7 +1,13 @@
 <section class="ai">
   <div class="container">
     @if (response(); as data) {
-      <pre class="ai__json">{{ data | json }}</pre>
+      <article class="ai__card card">
+        <span class="ai__kicker">Ответ модели</span>
+        <p class="ai__model">{{ data.model }}</p>
+        <div class="ai__text">{{ data.content }}</div>
+      </article>
+    } @else if (failed()) {
+      <p class="ai__status ai__status--error">Не удалось получить ответ модели</p>
     } @else {
       <p class="ai__status">Загрузка ответа…</p>
     }

@@ -1,23 +1,28 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { ApiService } from '../../services/api';
+import { AiResponse, ApiService } from '../../services/api';
 
 @Component({
   selector: 'app-ai',
   standalone: true,
-  imports: [JsonPipe],
   templateUrl: './ai.html',
   styleUrl: './ai.scss',
 })
 export class Ai implements OnInit {
   private readonly apiService = inject(ApiService);
 
-  readonly response = signal<Record<string, unknown> | null>(null);
+  readonly response = signal<AiResponse | null>(null);
+  readonly failed = signal(false);
 
   ngOnInit(): void {
     this.apiService.getAiResponse().subscribe({
-      next: (response) => this.response.set(response),
-      error: () => this.response.set({ error: 'Не удалось получить ответ модели' }),
+      next: (response) => {
+        this.response.set(response);
+        this.failed.set(false);
+      },
+      error: () => {
+        this.response.set(null);
+        this.failed.set(true);
+      },
     });
   }
 }

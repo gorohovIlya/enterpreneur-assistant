@@ -7,6 +7,11 @@ export interface StatusResponse {
   message: string;
 }
 
+export interface AiResponse {
+  content: string;
+  model: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +22,7 @@ export class ApiService {
     return this.http.get<StatusResponse>('/api/health');
   }
 
-  getAiResponse(): Observable<Record<string, unknown>> {
-    return this.http.get<Record<string, unknown>>('/api/ai');
+  getAiResponse(): Observable<AiResponse> {
+    return this.http.get<AiResponse>('/api/ai');
   }
 }
