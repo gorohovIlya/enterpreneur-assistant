@@ -1,13 +1,10 @@
 <section class="hero">
   <div class="container hero__inner">
     <div class="hero__content">
-      <span class="eyebrow">Онлайн-помощник</span>
-      <h1 class="hero__title">
-        Поможем выбрать организационно-правовую форму для вашего бизнеса
-      </h1>
+      <h1 class="hero__title">Поможем выбрать организационно-правовую форму для вашего бизнеса</h1>
       <p class="hero__lead">
-        Ответьте на шесть простых вопросов — сервис подскажет подходящую ОПФ, кратко опишет её
-        и покажет преимущества и ограничения.
+        Ответьте на шесть простых вопросов — сервис подскажет подходящую ОПФ, кратко опишет её и
+        покажет преимущества и ограничения.
       </p>
 
       <div class="hero__actions">
@@ -17,25 +14,6 @@
         </a>
         <a href="#how" class="btn btn--ghost">Как это работает</a>
       </div>
-
-      <p
-        class="status"
-        [class.status--online]="serverStatus() === 'online'"
-        [class.status--offline]="serverStatus() === 'offline'"
-      >
-        <span class="status__dot" aria-hidden="true"></span>
-        @switch (serverStatus()) {
-          @case ('online') {
-            Сервер доступен
-          }
-          @case ('offline') {
-            Сервер не отвечает — подбор работает в браузере
-          }
-          @default {
-            Проверяем соединение…
-          }
-        }
-      </p>
     </div>
 
     <aside class="hero__card card" aria-label="Поддерживаемые организационно-правовые формы">
@@ -100,7 +78,10 @@
       <article class="step card">
         <span class="step__number">3</span>
         <h3>Изучите плюсы и ограничения</h3>
-        <p>Посмотрите краткое описание выбранной ОПФ, её плюсы, ограничения и ключевые характеристики.</p>
+        <p>
+          Посмотрите краткое описание выбранной ОПФ, её плюсы, ограничения и ключевые
+          характеристики.
+        </p>
       </article>
     </div>
   </div>
