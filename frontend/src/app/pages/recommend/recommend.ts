@@ -108,6 +108,23 @@ export class Recommend {
     ];
   });
 
+  readonly aiQueryParams = computed<Record<string, string> | null>(() => {
+    const answers = this.submittedAnswers();
+
+    if (!answers) {
+      return null;
+    }
+
+    return {
+      founders: answers.founders,
+      revenue: answers.revenue,
+      employees: String(answers.employees),
+      investors: String(answers.investors),
+      limitedLiability: String(answers.limitedLiability),
+      priority: answers.priority,
+    };
+  });
+
   get invalidFields(): FieldMeta[] {
     return this.fieldMeta.filter((field) => this.form.controls[field.name].invalid);
   }

@@ -317,6 +317,20 @@
                 }
               </dl>
             </section>
+
+            <div class="result__ai">
+              <p class="result__ai-note">
+                Хотите посмотреть, как эти ответы оценивает языковая модель?
+              </p>
+              <a
+                class="btn btn--ghost btn--block"
+                [routerLink]="['/ai']"
+                [queryParams]="aiQueryParams()"
+              >
+                Посмотреть объяснение от ИИ
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </article>
 
           @if (recommendation.alternatives.length > 0) {

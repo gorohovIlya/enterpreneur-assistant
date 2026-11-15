@@ -266,6 +266,19 @@
   line-height: 1.35;
 }
 
+.result__ai {
+  margin-top: 1.4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.result__ai-note {
+  margin-bottom: 0.7rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 .alternatives h3 {
   margin-bottom: 0.6rem;
   font-size: 0.92rem;

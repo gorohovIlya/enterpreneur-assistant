@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { RecommendationInput } from '../models/opf';
 
 export interface StatusResponse {
   status: string;
@@ -13,7 +14,7 @@ export interface AiResponse {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
   private http = inject(HttpClient);
@@ -22,7 +23,7 @@ export class ApiService {
     return this.http.get<StatusResponse>('/api/health');
   }
 
-  getAiResponse(): Observable<AiResponse> {
-    return this.http.get<AiResponse>('/api/ai');
+  getAiResponse(input: RecommendationInput): Observable<AiResponse> {
+    return this.http.post<AiResponse>('/api/ai', input);
   }
 }

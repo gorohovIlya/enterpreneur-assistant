@@ -14,7 +14,12 @@ export const routes: Routes = [
   {
     path: 'ai',
     loadComponent: () => import('./pages/ai/ai').then((m) => m.Ai),
-    title: 'Ответ модели — Помощник предпринимателя',
+    title: 'Объяснение от ИИ — Помощник предпринимателя',
+  },
+  {
+    path: 'how-it-works',
+    loadComponent: () => import('./pages/how-it-works/how-it-works').then((m) => m.HowItWorks),
+    title: 'Как это работает — Помощник предпринимателя',
   },
   {
     path: '**',

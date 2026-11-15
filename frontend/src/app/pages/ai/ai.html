@@ -1,15 +1,42 @@
 <section class="ai">
   <div class="container">
-    @if (response(); as data) {
+    <a routerLink="/recommend" class="back-link">← К подбору</a>
+
+    <header class="ai__header">
+      <h1>Объяснение от ИИ</h1>
+      <p>
+        Дополнительный взгляд языковой модели на ваши ответы. Основная рекомендация сформирована по
+        правилам сервиса и не зависит от этого текста.
+      </p>
+    </header>
+
+    @if (!input()) {
+      <div class="ai__empty card">
+        <span class="ai__empty-icon" aria-hidden="true">?</span>
+        <h2>Нет данных для запроса</h2>
+        <p>Чтобы получить объяснение от модели, сначала заполните форму подбора.</p>
+        <a routerLink="/recommend" class="btn btn--primary">Перейти к подбору</a>
+      </div>
+    } @else if (loading()) {
+      <p class="ai__status" role="status">Модель готовит объяснение…</p>
+    } @else if (failed()) {
+      <div class="ai__card card">
+        <p class="ai__status ai__status--error" role="alert">
+          Не удалось получить ответ модели. Попробуйте ещё раз.
+        </p>
+        <div class="ai__actions">
+          <button type="button" class="btn btn--primary" (click)="retry()">
+            Попробовать ещё раз
+          </button>
+          <a routerLink="/recommend" class="btn btn--ghost">Вернуться к подбору</a>
+        </div>
+      </div>
+    } @else if (response(); as data) {
       <article class="ai__card card">
-        <span class="ai__kicker">Ответ модели</span>
-        <p class="ai__model">{{ data.model }}</p>
+        <span class="ai__kicker">Дополнительно</span>
+        <p class="ai__model">Ответ модели: {{ data.model }}</p>
         <div class="ai__text">{{ data.content }}</div>
       </article>
-    } @else if (failed()) {
-      <p class="ai__status ai__status--error">Не удалось получить ответ модели</p>
-    } @else {
-      <p class="ai__status">Загрузка ответа…</p>
     }
   </div>
 </section>

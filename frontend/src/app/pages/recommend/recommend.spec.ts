@@ -117,6 +117,29 @@ describe('Recommend', () => {
     expect(el.querySelector('.result')?.getAttribute('aria-live')).toBeNull();
   });
 
+  it('offers a separate AI explanation for the submitted answers', () => {
+    const { fixture, el } = render();
+    const component = fixture.componentInstance;
+
+    component.form.patchValue({
+      founders: 'couple',
+      revenue: 'small',
+      employees: true,
+      investors: false,
+      limitedLiability: true,
+      priority: 'scaling',
+    });
+    component.submit();
+    fixture.detectChanges();
+
+    const link = el.querySelector<HTMLAnchorElement>('.result__ai a');
+
+    expect(link?.textContent).toContain('Посмотреть объяснение от ИИ');
+    expect(link?.getAttribute('href')).toContain('/ai?');
+    expect(link?.getAttribute('href')).toContain('founders=couple');
+    expect(link?.getAttribute('href')).toContain('priority=scaling');
+  });
+
   it('summarizes submitted answers and lets the user edit them', () => {
     const { fixture, el } = render();
     const component = fixture.componentInstance;
