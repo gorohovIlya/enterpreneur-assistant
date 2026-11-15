@@ -1,25 +1,11 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { ApiService, StatusResponse } from './services/api';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
-export class App {
-  private apiService = inject(ApiService);
-
-    serverStatus = signal<StatusResponse | null>(null);
-    errorMessage = signal<string | null>(null);
-
-    ngOnInit(): void {
-      this.apiService.getHealthStatus().subscribe({
-        next: (data) => this.serverStatus.set(data),
-        error: (err) => {
-          console.error(err);
-          this.errorMessage.set('Ошибка соединения с бэкендом');
-        }
-      });
-    }
-}
+export class App {}

@@ -1,0 +1,117 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <span class="eyebrow">Онлайн-помощник</span>
+      <h1 class="hero__title">
+        Поможем выбрать организационно-правовую форму для вашего бизнеса
+      </h1>
+      <p class="hero__lead">
+        Ответьте на шесть простых вопросов — сервис подскажет подходящую ОПФ, кратко опишет её
+        и покажет основные преимущества.
+      </p>
+
+      <div class="hero__actions">
+        <a routerLink="/recommend" class="btn btn--primary">
+          Подобрать ОПФ
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="#how" class="btn btn--ghost">Как это работает</a>
+      </div>
+
+      <p
+        class="status"
+        [class.status--online]="serverStatus() === 'online'"
+        [class.status--offline]="serverStatus() === 'offline'"
+      >
+        <span class="status__dot" aria-hidden="true"></span>
+        @switch (serverStatus()) {
+          @case ('online') {
+            Сервер доступен
+          }
+          @case ('offline') {
+            Сервер временно недоступен
+          }
+          @default {
+            Проверяем соединение…
+          }
+        }
+      </p>
+    </div>
+
+    <aside class="hero__card card" aria-label="Поддерживаемые организационно-правовые формы">
+      <h2 class="hero__card-title">Поддерживаемые формы</h2>
+      <ul class="opf-list">
+        <li>
+          <span class="opf-list__mark">НПД</span>
+          <span>
+            <strong>Самозанятый</strong>
+            <small>Для небольших проектов без сотрудников</small>
+          </span>
+        </li>
+        <li>
+          <span class="opf-list__mark">ИП</span>
+          <span>
+            <strong>Индивидуальный предприниматель</strong>
+            <small>Один владелец, гибкие налоговые режимы</small>
+          </span>
+        </li>
+        <li>
+          <span class="opf-list__mark">ООО</span>
+          <span>
+            <strong>Общество с ограниченной ответственностью</strong>
+            <small>Партнёры, сотрудники и рост</small>
+          </span>
+        </li>
+        <li>
+          <span class="opf-list__mark">АО</span>
+          <span>
+            <strong>Акционерное общество</strong>
+            <small>Крупный бизнес и инвесторы</small>
+          </span>
+        </li>
+        <li>
+          <span class="opf-list__mark">ПК</span>
+          <span>
+            <strong>Производственный кооператив</strong>
+            <small>Команда с личным участием в работе</small>
+          </span>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container">
+    <h2 class="section__title">Как это работает</h2>
+    <p class="section__lead">Три шага — и вы увидите, какая форма лучше подходит вашей ситуации.</p>
+
+    <div class="steps">
+      <article class="step card">
+        <span class="step__number">1</span>
+        <h3>Ответьте на вопросы</h3>
+        <p>Укажите число учредителей, ожидаемую выручку и планы по сотрудникам и инвестициям.</p>
+      </article>
+      <article class="step card">
+        <span class="step__number">2</span>
+        <h3>Получите рекомендацию</h3>
+        <p>Сервис сравнит параметры с особенностями каждой организационно-правовой формы.</p>
+      </article>
+      <article class="step card">
+        <span class="step__number">3</span>
+        <h3>Изучите преимущества</h3>
+        <p>Посмотрите краткое описание выбранной ОПФ, её плюсы и ключевые характеристики.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container cta">
+    <div>
+      <h2>Готовы узнать подходящую форму?</h2>
+      <p>Подбор займёт меньше минуты и не потребует регистрации.</p>
+    </div>
+    <a routerLink="/recommend" class="btn btn--primary">Перейти к подбору</a>
+  </div>
+</section>
