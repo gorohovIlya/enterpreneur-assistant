@@ -1,7 +1,9 @@
 <div class="layout">
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
   <header class="site-header">
     <div class="container site-header__inner">
-      <a routerLink="/" class="brand" aria-label="На главную">
+      <a routerLink="/" class="brand" aria-label="Помощник предпринимателя — на главную">
         <span class="brand__mark" aria-hidden="true">ОПФ</span>
         <span class="brand__text">
           <span class="brand__title">Помощник предпринимателя</span>
@@ -15,7 +17,7 @@
           routerLinkActive="site-nav__link--active"
           [routerLinkActiveOptions]="{ exact: true }"
           ariaCurrentWhenActive="page"
-          class="site-nav__link"
+          class="site-nav__link site-nav__link--home"
         >
           Главная
         </a>
@@ -31,7 +33,7 @@
     </div>
   </header>
 
-  <main class="site-main">
+  <main id="main-content" class="site-main" tabindex="-1">
     <router-outlet />
   </main>
 

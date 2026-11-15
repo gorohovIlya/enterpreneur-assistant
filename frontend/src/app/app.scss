@@ -4,6 +4,27 @@
   flex-direction: column;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -26,6 +47,7 @@
   align-items: center;
   gap: 0.75rem;
   min-width: 0;
+  min-height: 2.75rem;
 }
 
 .brand__mark {
@@ -74,6 +96,7 @@
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 600;
+  white-space: nowrap;
   transition:
     color 0.15s ease,
     background 0.15s ease;
@@ -91,6 +114,10 @@
 
 .site-main {
   flex: 1;
+}
+
+.site-main:focus {
+  outline: none;
 }
 
 .site-footer {
@@ -125,5 +152,28 @@
   .site-footer__inner {
     justify-content: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .site-header__inner {
+    gap: 1rem;
+  }
+
+  .site-nav__link--home {
+    display: none;
+  }
+}
+
+@media (max-width: 355px) {
+  .brand__text {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link,
+  .site-nav__link {
+    transition: none;
   }
 }

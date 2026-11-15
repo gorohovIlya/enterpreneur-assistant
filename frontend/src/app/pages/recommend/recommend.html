@@ -5,13 +5,39 @@
     <header class="recommend__header">
       <h1>Подбор организационно-правовой формы</h1>
       <p>
-        Ответьте на шесть вопросов о вашем будущем бизнесе. Мы сравним ответы с особенностями
-        каждой формы и покажем подходящий вариант.
+        Ответьте на шесть вопросов о вашем будущем бизнесе. Мы сравним ответы с особенностями каждой
+        формы и покажем подходящий вариант.
       </p>
     </header>
 
     <div class="recommend__grid">
-      <form class="card form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <form
+        id="recommend-form"
+        class="card form"
+        [formGroup]="form"
+        (ngSubmit)="submit()"
+        novalidate
+      >
+        @if (showErrors() && form.invalid) {
+          <div
+            id="error-summary"
+            #errorSummary
+            class="form__summary"
+            role="alert"
+            tabindex="-1"
+            aria-labelledby="error-summary-title"
+          >
+            <p class="form__summary-title" id="error-summary-title">Проверьте ответы</p>
+            <ul>
+              @for (field of invalidFields; track field.name) {
+                <li>
+                  <a [href]="'#' + field.anchor">{{ field.label }}</a>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+
         <p class="form__note">Все вопросы обязательны.</p>
 
         <div class="field">
@@ -74,6 +100,8 @@
                 formControlName="employees"
                 [value]="true"
                 required
+                [attr.aria-invalid]="isInvalid('employees')"
+                [attr.aria-describedby]="isInvalid('employees') ? 'employees-error' : null"
               />
               <span>Да</span>
             </label>
@@ -87,6 +115,8 @@
                 name="employees"
                 formControlName="employees"
                 [value]="false"
+                [attr.aria-invalid]="isInvalid('employees')"
+                [attr.aria-describedby]="isInvalid('employees') ? 'employees-error' : null"
               />
               <span>Нет</span>
             </label>
@@ -101,7 +131,7 @@
           [attr.aria-invalid]="isInvalid('investors')"
           [attr.aria-describedby]="isInvalid('investors') ? 'investors-error' : null"
         >
-          <legend class="field__label">Нужны ли инвесторы или партнёры?</legend>
+          <legend class="field__label">Планируете привлекать внешних инвесторов?</legend>
           <div class="segmented">
             <label
               class="segmented__option"
@@ -114,6 +144,8 @@
                 formControlName="investors"
                 [value]="true"
                 required
+                [attr.aria-invalid]="isInvalid('investors')"
+                [attr.aria-describedby]="isInvalid('investors') ? 'investors-error' : null"
               />
               <span>Да</span>
             </label>
@@ -127,6 +159,8 @@
                 name="investors"
                 formControlName="investors"
                 [value]="false"
+                [attr.aria-invalid]="isInvalid('investors')"
+                [attr.aria-describedby]="isInvalid('investors') ? 'investors-error' : null"
               />
               <span>Нет</span>
             </label>
@@ -142,8 +176,8 @@
           [attr.aria-describedby]="isInvalid('limitedLiability') ? 'liability-error' : null"
         >
           <legend class="field__label">
-            Важна ли ограниченная ответственность?
-            <span class="field__hint">Готовы ли вы отвечать по долгам личным имуществом</span>
+            Нужна ли ограниченная ответственность?
+            <span class="field__hint">Или готовы отвечать по долгам личным имуществом</span>
           </legend>
           <div class="segmented">
             <label
@@ -157,8 +191,10 @@
                 formControlName="limitedLiability"
                 [value]="true"
                 required
+                [attr.aria-invalid]="isInvalid('limitedLiability')"
+                [attr.aria-describedby]="isInvalid('limitedLiability') ? 'liability-error' : null"
               />
-              <span>Да, важна</span>
+              <span>Да, нужна</span>
             </label>
             <label
               class="segmented__option"
@@ -170,8 +206,10 @@
                 name="limitedLiability"
                 formControlName="limitedLiability"
                 [value]="false"
+                [attr.aria-invalid]="isInvalid('limitedLiability')"
+                [attr.aria-describedby]="isInvalid('limitedLiability') ? 'liability-error' : null"
               />
-              <span>Готов рисковать</span>
+              <span>Нет, готов отвечать личным имуществом</span>
             </label>
           </div>
           @if (isInvalid('limitedLiability')) {
@@ -214,9 +252,6 @@
           }
         </div>
 
-        @if (form.invalid) {
-          <p class="form__hint">Заполните все вопросы, чтобы получить рекомендацию.</p>
-        }
         @if (failed()) {
           <p class="form__error">Не удалось получить рекомендацию. Попробуйте ещё раз.</p>
         }
@@ -265,6 +300,23 @@
                 <dd>{{ recommendation.opf.founders }}</dd>
               </div>
             </dl>
+
+            <section class="result__recap" aria-labelledby="recap-title">
+              <div class="result__recap-head">
+                <h3 class="result__subtitle" id="recap-title">Ваши ответы</h3>
+                <button type="button" class="result__edit" (click)="editAnswers()">
+                  Изменить ответы
+                </button>
+              </div>
+              <dl class="recap">
+                @for (item of recap(); track item.label) {
+                  <div>
+                    <dt>{{ item.label }}</dt>
+                    <dd>{{ item.value }}</dd>
+                  </div>
+                }
+              </dl>
+            </section>
           </article>
 
           @if (recommendation.alternatives.length > 0) {
