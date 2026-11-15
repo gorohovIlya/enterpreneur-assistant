@@ -1,0 +1,219 @@
+<section class="recommend">
+  <div class="container">
+    <a routerLink="/" class="back-link">← На главную</a>
+
+    <header class="recommend__header">
+      <h1>Подбор организационно-правовой формы</h1>
+      <p>
+        Ответьте на шесть вопросов о вашем будущем бизнесе. Мы сравним ответы с особенностями
+        каждой формы и покажем подходящий вариант.
+      </p>
+    </header>
+
+    <div class="recommend__grid">
+      <form class="card form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <p class="form__note">Все вопросы обязательны.</p>
+
+        <div class="field">
+          <label class="field__label" for="founders">Сколько будет учредителей?</label>
+          <select id="founders" class="select" formControlName="founders">
+            <option [ngValue]="null" disabled>Выберите вариант</option>
+            <option value="one">Один</option>
+            <option value="couple">2–4</option>
+            <option value="group">5–50</option>
+            <option value="many">51 и больше</option>
+          </select>
+          @if (form.controls.founders.touched && form.controls.founders.invalid) {
+            <span class="field__error">Выберите количество учредителей</span>
+          }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="revenue">Планируемая годовая выручка</label>
+          <select id="revenue" class="select" formControlName="revenue">
+            <option [ngValue]="null" disabled>Выберите вариант</option>
+            <option value="micro">До 2,4 млн ₽</option>
+            <option value="small">От 2,4 до 60 млн ₽</option>
+            <option value="large">Свыше 60 млн ₽</option>
+          </select>
+          @if (form.controls.revenue.touched && form.controls.revenue.invalid) {
+            <span class="field__error">Выберите ожидаемую выручку</span>
+          }
+        </div>
+
+        <fieldset class="field">
+          <legend class="field__label">Планируете нанимать сотрудников?</legend>
+          <div class="segmented">
+            <label
+              class="segmented__option"
+              [class.segmented__option--active]="form.controls.employees.value === true"
+            >
+              <input type="radio" formControlName="employees" [value]="true" />
+              <span>Да</span>
+            </label>
+            <label
+              class="segmented__option"
+              [class.segmented__option--active]="form.controls.employees.value === false"
+            >
+              <input type="radio" formControlName="employees" [value]="false" />
+              <span>Нет</span>
+            </label>
+          </div>
+          @if (form.controls.employees.touched && form.controls.employees.invalid) {
+            <span class="field__error">Выберите один из вариантов</span>
+          }
+        </fieldset>
+
+        <fieldset class="field">
+          <legend class="field__label">Нужны ли инвесторы или партнёры?</legend>
+          <div class="segmented">
+            <label
+              class="segmented__option"
+              [class.segmented__option--active]="form.controls.investors.value === true"
+            >
+              <input type="radio" formControlName="investors" [value]="true" />
+              <span>Да</span>
+            </label>
+            <label
+              class="segmented__option"
+              [class.segmented__option--active]="form.controls.investors.value === false"
+            >
+              <input type="radio" formControlName="investors" [value]="false" />
+              <span>Нет</span>
+            </label>
+          </div>
+          @if (form.controls.investors.touched && form.controls.investors.invalid) {
+            <span class="field__error">Выберите один из вариантов</span>
+          }
+        </fieldset>
+
+        <fieldset class="field">
+          <legend class="field__label">
+            Важна ли ограниченная ответственность?
+            <span class="field__hint">Готовы ли вы отвечать по долгам личным имуществом</span>
+          </legend>
+          <div class="segmented">
+            <label
+              class="segmented__option"
+              [class.segmented__option--active]="form.controls.limitedLiability.value === true"
+            >
+              <input type="radio" formControlName="limitedLiability" [value]="true" />
+              <span>Да, важна</span>
+            </label>
+            <label
+              class="segmented__option"
+              [class.segmented__option--active]="form.controls.limitedLiability.value === false"
+            >
+              <input type="radio" formControlName="limitedLiability" [value]="false" />
+              <span>Готов рисковать</span>
+            </label>
+          </div>
+          @if (form.controls.limitedLiability.touched && form.controls.limitedLiability.invalid) {
+            <span class="field__error">Выберите один из вариантов</span>
+          }
+        </fieldset>
+
+        <div class="field">
+          <label class="field__label" for="priority">Что важнее на старте?</label>
+          <select id="priority" class="select" formControlName="priority">
+            <option [ngValue]="null" disabled>Выберите вариант</option>
+            <option value="simplicity">Простая регистрация и отчётность</option>
+            <option value="scaling">Масштабирование и привлечение капитала</option>
+          </select>
+          @if (form.controls.priority.touched && form.controls.priority.invalid) {
+            <span class="field__error">Выберите приоритет</span>
+          }
+        </div>
+
+        <div class="form__actions">
+          <button
+            type="submit"
+            class="btn btn--primary btn--block"
+            [disabled]="form.invalid || submitting()"
+          >
+            @if (submitting()) {
+              Подбираем…
+            } @else {
+              Получить рекомендацию
+            }
+          </button>
+
+          @if (result() || failed()) {
+            <button type="button" class="btn btn--ghost btn--block" (click)="reset()">
+              Сбросить ответы
+            </button>
+          }
+        </div>
+
+        @if (form.invalid) {
+          <p class="form__hint">Заполните все вопросы, чтобы кнопка стала активной.</p>
+        }
+        @if (failed()) {
+          <p class="form__error">Не удалось получить рекомендацию. Попробуйте ещё раз.</p>
+        }
+      </form>
+
+      <aside class="result" #resultPanel aria-live="polite">
+        @if (result(); as recommendation) {
+          <article class="result__card card">
+            <span class="badge">Рекомендуем</span>
+            <h2 class="result__title">{{ recommendation.opf.name }}</h2>
+            <p class="result__full">{{ recommendation.opf.fullName }}</p>
+            <p class="result__description">{{ recommendation.opf.description }}</p>
+
+            <h3 class="result__subtitle">Преимущества</h3>
+            <ul class="checks">
+              @for (advantage of recommendation.opf.advantages; track advantage) {
+                <li>{{ advantage }}</li>
+              }
+            </ul>
+
+            <h3 class="result__subtitle">Почему это подходит</h3>
+            <ul class="reasons">
+              @for (reason of recommendation.reasons; track reason) {
+                <li>{{ reason }}</li>
+              }
+            </ul>
+
+            <dl class="facts">
+              <div>
+                <dt>Налоги</dt>
+                <dd>{{ recommendation.opf.tax }}</dd>
+              </div>
+              <div>
+                <dt>Ответственность</dt>
+                <dd>{{ recommendation.opf.liability }}</dd>
+              </div>
+              <div>
+                <dt>Учредители</dt>
+                <dd>{{ recommendation.opf.founders }}</dd>
+              </div>
+            </dl>
+          </article>
+
+          @if (recommendation.alternatives.length > 0) {
+            <section class="alternatives">
+              <h3>Другие варианты</h3>
+              @for (alternative of recommendation.alternatives; track alternative.id) {
+                <article class="alternative card">
+                  <h4>{{ alternative.name }}</h4>
+                  <p>{{ alternative.suitedFor }}</p>
+                </article>
+              }
+            </section>
+          }
+
+          <p class="disclaimer">
+            Рекомендация носит информационный характер и не заменяет юридическую консультацию.
+          </p>
+        } @else {
+          <div class="result__empty card">
+            <span class="result__empty-icon" aria-hidden="true">?</span>
+            <h2>Здесь появится рекомендация</h2>
+            <p>Заполните форму и нажмите «Получить рекомендацию».</p>
+          </div>
+        }
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,263 @@
+.recommend {
+  padding: 2.5rem 0 3.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.recommend__header {
+  max-width: 46rem;
+  margin-top: 1.25rem;
+}
+
+.recommend__header h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.recommend__header p {
+  margin-top: 0.7rem;
+  color: var(--muted);
+}
+
+.recommend__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 1.75rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.form {
+  padding: 1.75rem;
+}
+
+.form__note {
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.form__actions {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.form__hint {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.form__error {
+  margin-top: 0.75rem;
+  color: var(--danger);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.result {
+  position: sticky;
+  top: 5.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.result__card {
+  padding: 1.6rem;
+  border-top: 4px solid var(--accent);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: #e7f6ee;
+  color: #147a4b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.result__title {
+  margin-top: 0.7rem;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+.result__full {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.result__description {
+  margin-top: 0.8rem;
+  font-size: 0.94rem;
+}
+
+.result__subtitle {
+  margin-top: 1.4rem;
+  font-size: 0.95rem;
+}
+
+.checks li,
+.reasons li {
+  position: relative;
+  margin-top: 0.45rem;
+  padding-left: 1.45rem;
+  font-size: 0.9rem;
+}
+
+.checks li::before {
+  position: absolute;
+  left: 0;
+  color: #147a4b;
+  content: '✓';
+  font-weight: 700;
+}
+
+.reasons li {
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.reasons li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  content: '';
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.facts dt {
+  color: var(--muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.facts dd {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.alternatives h3 {
+  margin-bottom: 0.6rem;
+  font-size: 0.92rem;
+}
+
+.alternative {
+  padding: 0.85rem 1rem;
+  box-shadow: none;
+}
+
+.alternative + .alternative {
+  margin-top: 0.5rem;
+}
+
+.alternative h4 {
+  font-size: 0.9rem;
+}
+
+.alternative p {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.disclaimer {
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.result__empty {
+  display: grid;
+  min-height: 22rem;
+  place-items: center;
+  align-content: center;
+  padding: 2rem;
+  border-style: dashed;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: none;
+  text-align: center;
+}
+
+.result__empty-icon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.9rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.result__empty h2 {
+  font-size: 1.1rem;
+}
+
+.result__empty p {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .recommend__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result {
+    position: static;
+  }
+
+  .result__empty {
+    min-height: 14rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .recommend {
+    padding: 1.75rem 0 2.5rem;
+  }
+
+  .form {
+    padding: 1.25rem;
+  }
+
+  .facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
