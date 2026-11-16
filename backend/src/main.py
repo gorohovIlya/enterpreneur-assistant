@@ -1,10 +1,11 @@
-from typing import Any, Literal
+from typing import Any
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from openai import OpenAIError
 from pydantic import BaseModel
 
 from ModelRequester import RouterAIClient
+from ReportBuilder import RecommendationRequest, ReportRequest, build_report_pdf
 
 app = FastAPI(title="Entrepreneur Assistant API")
 
@@ -17,15 +18,6 @@ class StatusResponse(BaseModel):
 class AiResponse(BaseModel):
     content: str
     model: str
-
-
-class RecommendationRequest(BaseModel):
-    founders: Literal["one", "couple", "group", "many"]
-    revenue: Literal["micro", "small", "large"]
-    employees: bool
-    investors: bool
-    limitedLiability: bool
-    priority: Literal["simplicity", "scaling"]
 
 
 # Тестовые ответы в формате формы на /recommend.
@@ -62,3 +54,17 @@ def get_ai_response():
 @app.post("/api/ai", response_model=AiResponse)
 def post_ai_response(payload: RecommendationRequest):
     return ask_model(payload.model_dump())
+
+
+@app.post("/api/report")
+def post_report(payload: ReportRequest):
+    try:
+        pdf_bytes = build_report_pdf(payload)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail="Не удалось сформировать отчёт") from exc
+
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": 'attachment; filename="report.pdf"'},
+    )
