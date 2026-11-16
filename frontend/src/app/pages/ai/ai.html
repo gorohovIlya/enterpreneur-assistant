@@ -36,6 +36,27 @@
         <span class="ai__kicker">Дополнительно</span>
         <p class="ai__model">Ответ модели: {{ data.model }}</p>
         <div class="ai__text">{{ data.content }}</div>
+
+        <div class="ai__actions">
+          <button
+            type="button"
+            class="btn btn--primary"
+            (click)="downloadReport()"
+            [disabled]="downloading() || !recommendation()"
+          >
+            @if (downloading()) {
+              Готовим PDF…
+            } @else {
+              Скачать отчёт
+            }
+          </button>
+        </div>
+
+        @if (downloadFailed()) {
+          <p class="ai__status ai__status--error" role="alert">
+            Не удалось сформировать отчёт. Попробуйте ещё раз.
+          </p>
+        }
       </article>
     }
   </div>

@@ -80,6 +80,44 @@ describe('Ai', () => {
     expect(el.querySelector('.ai__text')?.textContent).toContain('1 Место — ИП');
   });
 
+  it('downloads a pdf report with the classic recommendation and the ai review', () => {
+    const createObjectURL = vi.fn(() => 'blob:report');
+    const revokeObjectURL = vi.fn();
+    URL.createObjectURL = createObjectURL;
+    URL.revokeObjectURL = revokeObjectURL;
+    const click = vi
+      .spyOn(HTMLAnchorElement.prototype, 'click')
+      .mockImplementation(() => undefined);
+
+    const { fixture, el } = render(VALID_PARAMS);
+    httpMock.expectOne('/api/ai').flush({ content: '1 Место — ИП', model: 'test-model' });
+    fixture.detectChanges();
+
+    const button = el.querySelector<HTMLButtonElement>('.ai__actions button');
+    expect(button?.textContent).toContain('Скачать отчёт');
+    button?.click();
+
+    const request = httpMock.expectOne('/api/report');
+    expect(request.request.method).toBe('POST');
+    expect(request.request.body.input).toEqual({
+      founders: 'one',
+      revenue: 'micro',
+      employees: false,
+      investors: false,
+      limitedLiability: false,
+      priority: 'simplicity',
+    });
+    expect(request.request.body.recommendation.opf.id).toBe('npd');
+    expect(request.request.body.ai).toEqual({ content: '1 Место — ИП', model: 'test-model' });
+
+    request.flush(new Blob(['%PDF-1.7'], { type: 'application/pdf' }));
+    fixture.detectChanges();
+
+    expect(createObjectURL).toHaveBeenCalled();
+    expect(click).toHaveBeenCalled();
+    expect(revokeObjectURL).toHaveBeenCalledWith('blob:report');
+  });
+
   it('shows an error with a retry action when the request fails', () => {
     const { fixture, el } = render(VALID_PARAMS);
     const request = httpMock.expectOne('/api/ai');

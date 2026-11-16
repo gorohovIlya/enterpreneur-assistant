@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RecommendationInput } from '../models/opf';
+import { RecommendationInput, RecommendationResult } from '../models/opf';
 
 export interface StatusResponse {
   status: string;
@@ -11,6 +11,12 @@ export interface StatusResponse {
 export interface AiResponse {
   content: string;
   model: string;
+}
+
+export interface ReportPayload {
+  input: RecommendationInput;
+  recommendation: RecommendationResult;
+  ai: AiResponse;
 }
 
 @Injectable({
@@ -25,5 +31,9 @@ export class ApiService {
 
   getAiResponse(input: RecommendationInput): Observable<AiResponse> {
     return this.http.post<AiResponse>('/api/ai', input);
+  }
+
+  getReport(payload: ReportPayload): Observable<Blob> {
+    return this.http.post('/api/report', payload, { responseType: 'blob' });
   }
 }
